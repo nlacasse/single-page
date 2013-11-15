@@ -25,10 +25,10 @@ function Page (cb, opts) {
     this.cb = cb;
 }
 
-Page.prototype.show = function (href) {
+Page.prototype.show = function (href, force) {
     href = href.replace(/^\/+/, '/');
      
-    if (this.current === href) return;
+    if (!force && this.current === href) return;
     this.saveScroll(href);
     this.current = href;
     
