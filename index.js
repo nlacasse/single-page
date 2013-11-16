@@ -8,9 +8,9 @@ module.exports = function (cb, opts) {
     }
     process.nextTick(onpopstate);
     
-    var fn = function (href) { return page.show(href) };
-    fn.push = function (href) { return page.push(href) };
-    fn.show = function (href) { return page.show(href) };
+    var fn = page.show.bind(page)
+    fn.push = page.push.bind(page)
+    fn.show = page.show.bing(page)
     return fn;
 };
 
