@@ -10,7 +10,7 @@ module.exports = function (cb, opts) {
     
     var fn = page.show.bind(page)
     fn.push = page.push.bind(page)
-    fn.show = page.show.bing(page)
+    fn.show = page.show.bind(page)
     return fn;
 };
 
